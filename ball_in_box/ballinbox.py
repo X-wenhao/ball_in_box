@@ -33,3 +33,15 @@ def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
         circle_index += 1
     
     return circles
+
+
+'''
+    构建一个圆
+    返回值为（x,y,r）
+    condition=【（），（），（）】，其中元组为 圆(x,y,r) 
+    PS：直线抽象成圆
+'''
+def get_circle(condition):
+
+
+    return
