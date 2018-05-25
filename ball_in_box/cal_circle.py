@@ -1,7 +1,7 @@
 from .validate import validate
 '''
     由三点构建一个圆
-    返回值为（x,y,r）,若该圆不符合条件（由validate判定），则返回NULL
+    返回值为（x,y,r）
     condition=【（），（），（）】，其中元组为点（x,y）或 圆(x,y,r) 
     PS：直线抽象成圆
 '''
