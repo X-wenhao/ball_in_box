@@ -13,6 +13,9 @@ def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
     """
 
     # The following is an example implementation.
+    conditions=[(0,-10**10,10**10-1),(0,10**10,10**10-1),(-10**10,0,10**10-1),(10**10,0,10**10-1)]
+    conditions.extend(blockers)
+
     circles = []
     for circle_index in range(m):
 
