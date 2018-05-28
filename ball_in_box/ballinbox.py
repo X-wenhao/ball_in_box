@@ -28,7 +28,8 @@ def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
         for a in ((i,j,k) for i in range(0,con_len-2) for j in range (i+1,con_len-1) for k in range(j+1,con_len)):
             condition=list(conditions[t] for t in a)
             tmp=get_circle(condition)
-            
+            if DEBUG:
+                print("a:",a,"  c:",tmp)
             if tmp is not None:
                 re.extend(tmp)
         
@@ -45,6 +46,7 @@ def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
             print("circles:",circles,"\n")
     if DEBUG:
         draw(blockers,circles)
+        
     return circles
 
 def my_validate(c):
@@ -380,8 +382,10 @@ if __name__=='__main__':
                [(0,0.6,0.3),(0,0,0.1),(0,-0.5,0.2)],  #None?
                [(0,0.5,0.2),(0,0,0.1),(0,-0.5,0.2)],
                ]
-    condition=conditions[-4]
-    re=get_circle(condition)
+    condition=conditions[-1]
+    condition=[(-0.19666666666666666, 0.1, 0.8033333333333333),(0.6592269448766501, -0.6592269448766501, 0.3407730551233499)]
+    re=None
+    #re=get_circle(condition)
     print(condition,re)
     if re is not None:
         condition+=re
