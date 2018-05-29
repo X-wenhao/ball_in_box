@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 E=1e-8
-DEBUG=True
+DEBUG=False
 __all__ = ['ball_in_box']
 
 def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
@@ -27,7 +27,7 @@ def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
         for a in ((i,j,k) for i in range(0,con_len-2) for j in range (i+1,con_len-1) for k in range(j+1,con_len)):
             condition=list(conditions[t] for t in a)
             tmp=get_circle(condition)
-            print("a:",a,"  c:",tmp)
+            #print("a:",a,"  c:",tmp)
             if tmp is not None:
                 re.extend(tmp)
 
