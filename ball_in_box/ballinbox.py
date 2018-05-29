@@ -5,15 +5,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 E=1e-8
-DEBUG=True
-
+DEBUG=False
 __all__ = ['ball_in_box']
 
 def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
     """
     m is the number circles.
     n is the list of coordinates of tiny blocks.
-    
+
     This returns a list of tuple, composed of x,y of the circle and r of the circle.
     """
 
@@ -32,7 +31,7 @@ def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
                 print("a:",a,"  c:",tmp)
             if tmp is not None:
                 re.extend(tmp)
-        
+
         re=list(i[0][-1] for i in list(filter(my_validate,list((circles+[i],blockers) for i in re))))
         tmp=re[0]
         for c in re:
@@ -40,13 +39,13 @@ def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
                 tmp=c
         circles.append(tmp)
         conditions.append(tmp)
-        if DEBUG:    
+        if DEBUG:
             print("re:",re,"\n")
             print("conditions:",conditions,"\n")
             print("circles:",circles,"\n")
     if DEBUG:
         draw(blockers,circles)
-        
+
     return circles
 
 def my_validate(c):
@@ -57,7 +56,7 @@ def draw(blockers,circles):
     ax=fig.gca()
     plt.xlim((-1,1))
     plt.ylim((-1,1))
-    
+
     for i in blockers:
         plt.scatter(i[0],i[1],color='', marker='o', edgecolors='g', s=20)
     for i in circles:
@@ -70,20 +69,20 @@ def draw(blockers,circles):
 '''
     构建一个圆
     返回值为（x,y,r）
-    condition=【（），（），（）】，其中元组为 圆(x,y,r) 
+    condition=【（），（），（）】，其中元组为 圆(x,y,r)
     PS：直线抽象成圆
 '''
 def get_circle(condition):
     len_con=list(len(i) for i in condition)
-    
+
     if len_con[0]==1 and len_con[1]==1 and len_con[2]==1:
         return get_circle_three_line(condition)
-    
+
     if len_con[0]==1 and len_con[1]==1:
         x=condition[2][0]
         y=condition[2][1]
         r=condition[2][2]
-        
+
         if condition[0][0]==0 and condition[1][0]==1:
             return get_circle_two_line_1(condition)
         if condition[0][0]==2 and condition[1][0]==3:
@@ -92,7 +91,7 @@ def get_circle(condition):
             tmp.append((y,x,r))
             re=get_circle_two_line_1(tmp)
             return list((i[1],i[0],i[2]) for i in re)
-        
+
         if condition[0][0]==0 and condition[1][0]==2: #x=1,y=1
             return get_circle_two_line_2(condition)
         if condition[0][0]==0 and condition[1][0]==3: #x=1,y=-1
@@ -124,7 +123,7 @@ def get_circle(condition):
         x1=condition[2][0]
         y1=condition[2][1]
         r1=condition[2][2]
-        
+
         if condition[0][0]==0:  #x=1
             return get_circle_one_line(condition)
         if condition[0][0]==1:  #x=-1
@@ -150,7 +149,7 @@ def get_circle(condition):
 
 def get_circle_three_line(condition):
     return [(0.0,0.0,1.0)]
-    
+
 def get_circle_two_line_1(condition):
     a1=condition[2][0]
     b1=condition[2][1]
@@ -164,7 +163,7 @@ def get_circle_two_line_2(condition):
     a1=condition[2][0]
     b1=condition[2][1]
     r1=condition[2][2]
-    
+
     b=-2*(a1+b1-r1-1)
     c=a1**2+b1**2-(r1+1)**2
     derta=b**2-4*c
@@ -175,7 +174,7 @@ def get_circle_two_line_2(condition):
         x_0=(-b+derta**0.5)/2
         x_1=(-b-derta**0.5)/2
         return [(x_0,x_0,1-x_0),(x_1,x_1,1-x_1)]
-    
+
     return None
 
 def get_circle_one_line(condition):
@@ -185,7 +184,7 @@ def get_circle_one_line(condition):
     a2=condition[2][0]
     b2=condition[2][1]
     r2=condition[2][2]
-    
+
     m1=2*(r1+1-a1)
     n1=a1**2-(r1+1)**2+b1**2
     m2=2*(r2+1-a2)
@@ -356,27 +355,27 @@ def if_line(condition):
         return True
     else:
         return False
-    
+
 if __name__=='__main__':
     conditions=[[(0,),(1,),(2,)],
                [(1,),(2,),(3,)],
-               
+
                [(0,),(1,),(0,0,0)],
                [(0,),(1,),(0.5,0.5,0.2)],
                [(2,),(3,),(0.5,0.5,0.2)],
-               
+
                [(0,),(2,),(0.5,0.5,0.2)],
                [(0,),(2,),(-0.5,0.5,0.2)],
                [(0,),(3,),(0.5,0.5,0.2)],
                [(1,),(2,),(0.5,0.5,0.2)],
                [(1,),(3,),(0.5,0.5,0.2)],
-               
+
                [(0,),(0.5,-0.5,0.2),(0.5,0.5,0.2)],
                [(0,),(0,0,0.3),(0.5,0.5,0.2)],
                [(1,),(0,0,0.3),(0.5,0.5,0.2)],
                [(2,),(0,0,0.3),(0.5,0.5,0.2)],
                [(3,),(0,0,0.3),(0.5,0.5,0.2)],
-               
+
                [(0,0.6,0.1),(0,0,0.3),(0.5,-0.5,0.2)],
                [(0,0.6,0.1),(0,0,0.3),(0,-0.5,0.2)],
                [(0,0.6,0.3),(0,0,0.1),(0,-0.5,0.2)],  #None?
