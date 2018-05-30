@@ -18,6 +18,7 @@ def validate(circles, blockers):
            or (not (xpr <= 1+E and xpr >=-1-E )) \
            or (not (ymr <= 1+E and ymr >=-1-E )) \
            or (not (ypr <= 1+E and ypr >=-1-E )):
+            #print("0",circle)
             return False
 
     # Is circle good for blockers?
@@ -30,6 +31,7 @@ def validate(circles, blockers):
                 bx = block[0]
                 by = block[1]
                 if math.sqrt((x - bx)**2 + (y - by)**2) -r< -E:
+                    #print("1",circle)
                     return False
 
     # Is circle good for each other?
@@ -45,6 +47,7 @@ def validate(circles, blockers):
             r2 = circle2[2]
             if math.sqrt((x1 - x2)**2 + (y1 - y2)**2) -(r1 + r2)<-E:
                 #print("math:",math.sqrt((x1 - x2)**2 + (y1 - y2)**2),'  ',r1 + r2)
+                #print("2",circle)
                 return False
 
     # all good

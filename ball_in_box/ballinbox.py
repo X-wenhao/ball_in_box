@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 E=1e-8
-DEBUG=False
+DEBUG=True
 __all__ = ['ball_in_box']
 
 def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
@@ -27,8 +27,7 @@ def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
         for a in ((i,j,k) for i in range(0,con_len-2) for j in range (i+1,con_len-1) for k in range(j+1,con_len)):
             condition=list(conditions[t] for t in a)
             tmp=get_circle(condition)
-            if DEBUG:
-                print("a:",a,"  c:",tmp)
+            print("a:",a,"  c:",tmp)
             if tmp is not None:
                 re.extend(tmp)
 
@@ -208,7 +207,7 @@ def get_circle_one_line(condition):
         y_0=(-b+derta**0.5)/2.0/a
         x_0=-(n1+y_0**2-2*b1*y_0)/m1
         y_1=(-b-derta**0.5)/2.0/a
-        x_1=-(n1+y_0**2-2*b1*y_0)/m1
+        x_1=-(n1+y_1**2-2*b1*y_1)/m1
         return [(x_0,y_0,1-x_0),(x_1,y_1,1-x_1)]
     return None
 
