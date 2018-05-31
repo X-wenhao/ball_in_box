@@ -1,12 +1,11 @@
 import math
 import random
 from .validate import validate
-#from matplotlib.patches import Circle
-#import matplotlib.pyplot as plt
+from matplotlib.patches import Circle
+import matplotlib.pyplot as plt
 
 __all__ = ['ball_in_box']
 
-'''
 def draw(circles,blockers):    
     fig = plt.figure(figsize=(6,6))
     ax = fig.add_subplot(111)
@@ -21,7 +20,7 @@ def draw(circles,blockers):
     plt.xlim(-1.0, 1.0)
     plt.ylim(-1.0, 1.0)
     plt.show()
-'''
+
 def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
     """
     m is the number circles.
@@ -54,5 +53,5 @@ def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
                     tmp_y=c_y
         circles.append((tmp_x,tmp_y,tmp_r))
         print(tmp_x,tmp_y,tmp_r)
-    #draw(circles,blockers)
+    draw(circles,blockers)
     return circles
