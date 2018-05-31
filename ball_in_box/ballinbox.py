@@ -1,6 +1,6 @@
 import math
 import random
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 
 E=1e-8
@@ -92,7 +92,7 @@ def my_validate(c):
                 return False
     # all good
     return True
-
+'''
 def draw(blockers,circles):
     fig=plt.figure()
     ax=fig.gca()
@@ -107,7 +107,7 @@ def draw(blockers,circles):
         circle = plt.Circle((i[0], i[1]), i[2], color='r',fill=False)
         ax.add_artist(circle)
     plt.show()
-
+'''
 '''
     构建一个圆
     返回值为（x,y,r）
