@@ -1,6 +1,5 @@
 import math
 import random
-from ball_in_box.validate import validate
 import matplotlib.pyplot as plt
 import numpy as np
 
