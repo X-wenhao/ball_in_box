@@ -2,7 +2,7 @@ import math
 import random
 from .validate import validate
 
-MOVE1=0.01  #第一次搜索的步长
+MOVE1=0.01  
 MOVE2=0.001 #第二次搜索的步长
 
 __all__ = ['ball_in_box']
