@@ -91,4 +91,41 @@ def get_circle_not_line(condition):
                     return [(kx*y0+hx,y0,r0)]
                 else:
                     return None
-    
+    else:
+        'y=k1*r+h1'
+        k1 = float(p1 * m2 - p2 * m1) / (n2 * m1 - n1 * m2)
+        h1 = float(q1 * m2 - q2 * m1) / (n2 * m1 - n1 * m2)
+        k2 = float(p1 * n2 - p2 * n1) / (n1 * m2 - n2 * m1)
+        h2 = float(q1 * n2 - q2 * n1) / (n1 * m2 - n2 * m1)
+
+        'a*r**2+b*r+c=0'
+        a = k1 ** 2 + k2 ** 2 - 1
+        b = 2 * (k2 * h2 + k1 * h1 - a1 * k2 - b1 * k1 - r1)
+        c = a1 ** 2 + b1 ** 2 + h1 ** 2 + h2 ** 2 - 2 * a1 * h2 - 2 * b1 * h1 - r1 ** 2
+        derta = b ** 2 - 4 * a * c
+
+        '只存在一个解'
+        if math.fabs(a) < E:
+            r0 = -float(c) / b
+            x0 = k2 * r0 + h2
+            y0 = k1 * r0 + h1
+            return [(x0, y0, r0)]
+        '存在两个解'
+        if derta >= 0:
+            r01 = float(-b + math.sqrt(derta)) / (2 * a)
+            r02 = float(-b - math.sqrt(derta)) / (2 * a)
+            if r01 >= -E:
+                x0 = k2 * r01 + h2
+                y0 = k1 * r01 + h1
+                return [(x0, y0, r01)]
+            else:
+                x0 = k2 * r02 + h2
+                y0 = k1 * r02 + h1
+                return [(x0, y0, r02)]
+        elif derta >= -E:
+            r0 = float(-b) / (2 * a)
+            x0 = k2 * r0 + h2
+            y0 = k1 * r0 + h1
+            return [(x0, y0, r0)]
+        else:
+            return None
