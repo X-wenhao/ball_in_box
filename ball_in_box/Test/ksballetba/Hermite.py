@@ -36,13 +36,15 @@ bound_set0 = [
     Bound( -INFT , 0.0 , INFT ),
     Bound( INFT , 0.0 , INFT ),
     Bound(  0.0, -INFT, INFT ),
+
+    
     Bound(  0.0, INFT, INFT  ),
     Bound( 0.5, 0.5, 0)
     ] 
 
 
 
-    
+
 
 def find(bound_set):
     new_bound_set = copy(bound_set) 
@@ -55,6 +57,10 @@ def find(bound_set):
             max_bound = new_bound                
     new_bound_set.append(max_bound)
     return new_bound_set
+
+
+
+
   def solve(three_bounds):
     def fi(solution,bound):
         if bound.x == INFT :
