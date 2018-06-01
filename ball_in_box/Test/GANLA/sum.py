@@ -21,5 +21,3 @@ if __name__ == '__main__':
         print("Total area: {}".format(area))
     else:
         print("Error: no good circles.")
-
-        
