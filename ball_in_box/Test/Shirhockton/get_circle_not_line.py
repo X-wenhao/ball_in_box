@@ -1,6 +1,9 @@
 import numpy as np
 import math
+
+
 def get_circle_not_line(condition):
+
     a1 = condition[0][0]
     b1 = condition[0][1]
     r1 = condition[0][2]
@@ -58,6 +61,8 @@ def get_circle_not_line(condition):
                         return [(x0, ky * x0 + hy, r0)]
                     else:
                         return None
+
+
         else:
             r0=-float(q1*m2-q2*m1)/(p1*m2-p2*m1)
             if math.fabs(m1)<E:
@@ -91,6 +96,8 @@ def get_circle_not_line(condition):
                     return [(kx*y0+hx,y0,r0)]
                 else:
                     return None
+
+
     else:
         'y=k1*r+h1'
         k1 = float(p1 * m2 - p2 * m1) / (n2 * m1 - n1 * m2)
@@ -110,6 +117,8 @@ def get_circle_not_line(condition):
             x0 = k2 * r0 + h2
             y0 = k1 * r0 + h1
             return [(x0, y0, r0)]
+
+
         '存在两个解'
         if derta >= 0:
             r01 = float(-b + math.sqrt(derta)) / (2 * a)
