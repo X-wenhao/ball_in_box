@@ -2,6 +2,8 @@ from itertools import combinations
 from scipy.optimize import fsolve
 from copy import copy
 from pdb import set_trace
+
+
 INFT = float(10**10)
 class Bound(object):
   
@@ -37,7 +39,7 @@ bound_set0 = [
     Bound( INFT , 0.0 , INFT ),
 
 
-    
+
     Bound(  0.0, -INFT, INFT ),
 
 
