@@ -1,6 +1,9 @@
 import numpy as np
 import math
+
+
 def get_circle_not_line(condition):
+
     a1 = condition[0][0]
     b1 = condition[0][1]
     r1 = condition[0][2]
@@ -49,6 +52,8 @@ def get_circle_not_line(condition):
                     by = 2 * (ky * hy - ky * b1 - a1)
                     cy = (hy - b1) ** 2 + a1 ** 2 - (r0 + r1) ** 2
                     dertay = by ** 2 - 4 * ay * cy
+
+
                     if dertay >= 0:
                         x01 = float(-by + math.sqrt(dertay)) / (2 * ay)
                         x02 = float(-by - math.sqrt(dertay)) / (2 * ay)
@@ -58,6 +63,8 @@ def get_circle_not_line(condition):
                         return [(x0, ky * x0 + hy, r0)]
                     else:
                         return None
+
+
         else:
             r0=-float(q1*m2-q2*m1)/(p1*m2-p2*m1)
             if math.fabs(m1)<E:
@@ -70,6 +77,8 @@ def get_circle_not_line(condition):
                 elif s>=-E:
                     x0=a1
                     return [(x0,y0,r0)]
+
+
                 else:
                     return None
             else:
@@ -91,6 +100,8 @@ def get_circle_not_line(condition):
                     return [(kx*y0+hx,y0,r0)]
                 else:
                     return None
+
+
     else:
         'y=k1*r+h1'
         k1 = float(p1 * m2 - p2 * m1) / (n2 * m1 - n1 * m2)
@@ -104,13 +115,13 @@ def get_circle_not_line(condition):
         c = a1 ** 2 + b1 ** 2 + h1 ** 2 + h2 ** 2 - 2 * a1 * h2 - 2 * b1 * h1 - r1 ** 2
         derta = b ** 2 - 4 * a * c
 
-        '只存在一个解'
         if math.fabs(a) < E:
             r0 = -float(c) / b
             x0 = k2 * r0 + h2
             y0 = k1 * r0 + h1
             return [(x0, y0, r0)]
-        '存在两个解'
+
+
         if derta >= 0:
             r01 = float(-b + math.sqrt(derta)) / (2 * a)
             r02 = float(-b - math.sqrt(derta)) / (2 * a)
