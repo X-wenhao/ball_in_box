@@ -47,7 +47,7 @@ def max_in_nine_points(ox, oy, d, circles, blockers):
             or (not (oy <= 1 and oy >= -1)):
         return 0
     minb = min(ox+1, 1-ox, oy+1, 1+oy)
-      minc = 2
+        minc = 2
     for circle in circles:
         if math.sqrt((ox - circle[0])**2 + (oy - circle[1])**2) - circle[2] < minc:
             minc = math.sqrt((ox - circle[0])**2 + (oy - circle[1])**2) - circle[2]
