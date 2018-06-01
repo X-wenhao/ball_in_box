@@ -1,5 +1,5 @@
 import math
-
+#deviation
 E=1e-8
 
 def validate(circles, blockers):
