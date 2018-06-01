@@ -52,6 +52,8 @@ def get_circle_not_line(condition):
                     by = 2 * (ky * hy - ky * b1 - a1)
                     cy = (hy - b1) ** 2 + a1 ** 2 - (r0 + r1) ** 2
                     dertay = by ** 2 - 4 * ay * cy
+
+
                     if dertay >= 0:
                         x01 = float(-by + math.sqrt(dertay)) / (2 * ay)
                         x02 = float(-by - math.sqrt(dertay)) / (2 * ay)
@@ -75,6 +77,8 @@ def get_circle_not_line(condition):
                 elif s>=-E:
                     x0=a1
                     return [(x0,y0,r0)]
+
+
                 else:
                     return None
             else:
@@ -111,7 +115,6 @@ def get_circle_not_line(condition):
         c = a1 ** 2 + b1 ** 2 + h1 ** 2 + h2 ** 2 - 2 * a1 * h2 - 2 * b1 * h1 - r1 ** 2
         derta = b ** 2 - 4 * a * c
 
-        '只存在一个解'
         if math.fabs(a) < E:
             r0 = -float(c) / b
             x0 = k2 * r0 + h2
@@ -119,7 +122,6 @@ def get_circle_not_line(condition):
             return [(x0, y0, r0)]
 
 
-        '存在两个解'
         if derta >= 0:
             r01 = float(-b + math.sqrt(derta)) / (2 * a)
             r02 = float(-b - math.sqrt(derta)) / (2 * a)
