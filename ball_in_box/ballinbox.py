@@ -53,5 +53,5 @@ def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
                     tmp_y=c_y
         circles.append((tmp_x,tmp_y,tmp_r))
         print(tmp_x,tmp_y,tmp_r)
-    draw(circles,blockers)
+    #draw(circles,blockers)
     return circles
