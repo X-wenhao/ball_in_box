@@ -23,3 +23,11 @@ class Bound(object):
             return self.y - self.r >= 0.0   
           
         else:
+           return (self.r + another_bound.r)**2 <=  (self.x - another_bound.x)**2 + (self.y - another_bound.y)**2 
+        # return (self.r + another_bound.r)**2 <=  (self.x - another_bound.x)**2 + (self.y - another_bound.y)**2 
+    def fit_all(self,bounds):
+        for i in bounds:
+            if not self.fit(i):
+                return False
+        return True
+# bound( x , y , r )
