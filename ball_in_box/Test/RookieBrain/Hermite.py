@@ -39,3 +39,15 @@ bound_set0 = [
     Bound(  0.0, INFT, INFT  ),
     Bound( 0.5, 0.5, 0)
     ] 
+
+def find(bound_set):
+    new_bound_set = copy(bound_set) 
+    max_r = 0
+    for selected_3_bound in list(combinations(bound_set, 3)):
+        new_bound = Bound(solve(selected_3_bound)[0],solve(selected_3_bound)[1],solve(selected_3_bound)[2])        
+        # set_trace()
+        if new_bound.fit_all(new_bound_set) and new_bound.r > max_r:
+            max_r = new_bound.r
+            max_bound = new_bound                
+    new_bound_set.append(max_bound)
+    return new_bound_set
