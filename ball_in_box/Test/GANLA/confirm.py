@@ -1,5 +1,7 @@
 import math
+
 E=1e-8
+
 def validate(circles, blockers):
     # Is circle in the box?
     for circle in circles:
