@@ -14,3 +14,12 @@ class Bound(object):
             return self.x + self.r <= 1.0
           
         elif another_bound.x == - INFT :
+           return self.x - self.r >= 0.0
+          
+        elif another_bound.y == INFT :
+            return self.y + self.r <= 1.0
+          
+        elif another_bound.y == - INFT :
+            return self.y - self.r >= 0.0   
+          
+        else:
