@@ -3,10 +3,26 @@ import random
 #import matplotlib.pyplot as plt
 import numpy as np
 
+
 E=1e-8
 DEBUG=False
 __all__ = ['ball_in_box']
-
+'''
+def draw(circles,blockers):    
+    fig = plt.figure(figsize=(6,6))
+    ax = fig.add_subplot(111)
+    for block in blockers:
+        ax.scatter(block[0],block[1], c='k')
+    for circle in circles:
+        x = circle[0]
+        y = circle[1]
+        r = circle[2]    
+        cir = Circle(xy = (x, y), radius=r, alpha=0.4)
+        ax.add_patch(cir)
+    plt.xlim(-1.0, 1.0)
+    plt.ylim(-1.0, 1.0)
+    plt.show()
+'''
 def ball_in_box(m=5, blockers=[(0.5, 0.5), (0.5, -0.5), (0.5, 0.3)]):
     """
     m is the number circles.
