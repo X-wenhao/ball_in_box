@@ -51,3 +51,14 @@ def find(bound_set):
             max_bound = new_bound                
     new_bound_set.append(max_bound)
     return new_bound_set
+  def solve(three_bounds):
+    def fi(solution,bound):
+        if bound.x == INFT :
+            return solution[0] + solution[2] - 1.0
+        elif bound.x == - INFT :
+            return solution[0] - solution[2] - 0.0
+        elif bound.y == INFT :
+            return solution[1] + solution[2] - 1.0
+        elif bound.y == - INFT :
+            return solution[1] - solution[2] - 0.0    
+        else:
