@@ -30,7 +30,7 @@ def max_in_nine_points(ox, oy, d, circles, blockers):
         this_circle = (x0, y0, max_circle_one_point(x0, y0, circles, blockers))
         if this_circle[2] >= max_circle[2]:
             center_circle2 = second_circle = max_circle
-            max_circle = this_circle
+          max_circle = this_circle
     if max_circle[2] - center_circle[2] < 0.00000001 :
         return max_circle
         #if second_circle[2] - center_circle2 <0.0000001:
