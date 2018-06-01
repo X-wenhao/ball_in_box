@@ -1,5 +1,10 @@
-import math
+"""
+    fix a bug of circle in circle
+    
+    add E to compare between two float 
+"""
 
+import math
 def validate(circles, blockers):
     # Is circle in the box?
     for circle in circles:
@@ -12,6 +17,7 @@ def validate(circles, blockers):
            or (not (xpr <= 1 and xpr >=-1 )) \
            or (not (ymr <= 1 and ymr >=-1 )) \
            or (not (ypr <= 1 and ypr >=-1 )):
+            #print("0",circle)
             return False
 
     # Is circle good for blockers?
@@ -24,19 +30,23 @@ def validate(circles, blockers):
                 bx = block[0]
                 by = block[1]
                 if math.sqrt((x - bx)**2 + (y - by)**2) < r:
+                    #print("1",circle)
                     return False
 
     # Is circle good for each other?
-    circleNum=len(circles)
-    for circle1 in range(0,circleNum):
-        for circle2 in range(circle1+1,circleNum):
-            x1 = circles[circle1][0]
-            y1 = circles[circle1][1]
-            r1 = circles[circle1][2]
-            x2 = circles[circle2][0]
-            y2 = circles[circle2][1]
-            r2 = circles[circle2][2]
-            if math.sqrt((x1 - x2)**2 + (y1 - y2)**2) < (r1 + r2):
+    i=0
+    for circle1 in circles[:-1]:
+        i+=1
+        for circle2 in circles[i:]:
+            x1 = circle1[0]
+            y1 = circle1[1]
+            r1 = circle1[2]
+            x2 = circle2[0]
+            y2 = circle2[1]
+            r2 = circle2[2]
+            if math.sqrt((x1 - x2)**2 + (y1 - y2)**2) <(r1 + r2):
+                #print("math:",math.sqrt((x1 - x2)**2 + (y1 - y2)**2),'  ',r1 + r2)
+                #print("2",circle)
                 return False
 
     # all good
