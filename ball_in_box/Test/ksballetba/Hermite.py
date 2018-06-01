@@ -40,6 +40,10 @@ bound_set0 = [
     Bound( 0.5, 0.5, 0)
     ] 
 
+
+
+    
+
 def find(bound_set):
     new_bound_set = copy(bound_set) 
     max_r = 0
