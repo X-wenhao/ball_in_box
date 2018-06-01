@@ -23,6 +23,8 @@ class Bound(object):
           
         elif another_bound.y == - INFT :
             return self.y - self.r >= 0.0   
+
+            
           
         else:
            return (self.r + another_bound.r)**2 <=  (self.x - another_bound.x)**2 + (self.y - another_bound.y)**2 
